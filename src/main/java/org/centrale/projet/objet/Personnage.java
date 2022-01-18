@@ -90,13 +90,13 @@ public abstract class Personnage extends Creature {
     public Personnage() throws NoSuchAlgorithmException {
         
         super();
-        Random gAlea=new Random();
+        
         this.nom = null;
-        this.ptMana = gAlea.nextInt(100);
-        this.pourcentageMag = gAlea.nextInt(100);
-        this.pourcentageResistMag =gAlea.nextInt(100);
-        this.degMag =gAlea.nextInt(100);
-        this.distAttMax = gAlea.nextInt(100);
+        this.ptMana = this.rand.nextInt(100);
+        this.pourcentageMag = this.rand.nextInt(100);
+        this.pourcentageResistMag =this.rand.nextInt(100);
+        this.degMag =this.rand.nextInt(100);
+        this.distAttMax = this.rand.nextInt(100);
     }
 
     public String getNom() {
