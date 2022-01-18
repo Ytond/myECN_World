@@ -74,7 +74,7 @@ public class Joueur
      public void choisirPersonnage(World w) throws NoSuchAlgorithmException
     {
         boolean b=true;
-        //Random al = new Random();
+        
         Point2D pos = new Point2D();
         int choix;
         while(b)
@@ -86,6 +86,7 @@ public class Joueur
             Scanner scanner = new Scanner( System.in );
             choix= scanner.nextInt();
             String nomPerso;
+            String msg="Saisir un nom pour votre personnage";
 
             switch(choix)
             {
@@ -94,7 +95,7 @@ public class Joueur
                     pos.setPosition(this.rand.nextInt(w.longueur), this.rand.nextInt(w.hauteur));
                     this.perso=new Guerrier();
                     this.perso.setPos(pos);
-                    System.out.println("Saisir un nom pour votre personnage");
+                    System.out.println(msg);
                     nomPerso=scanner.next();
                     this.perso.setNom(nomPerso);
                     b=false;
@@ -104,7 +105,7 @@ public class Joueur
                     pos.setPosition(this.rand.nextInt(w.longueur), this.rand.nextInt(w.hauteur));
                     this.perso=new Archer();
                     this.perso.setPos(pos);
-                    System.out.println("Saisir un nom pour votre personnage");
+                    System.out.println(msg);
                     nomPerso=scanner.next();
                     this.perso.setNom(nomPerso);
                     b=false;
@@ -114,7 +115,7 @@ public class Joueur
                     pos.setPosition(this.rand.nextInt(w.longueur), this.rand.nextInt(w.hauteur));
                     this.perso=new Mage();
                     this.perso.setPos(pos);
-                    System.out.println("Saisir un nom pour votre personnage");
+                    System.out.println(msg);
                     nomPerso=scanner.next();
                     this.perso.setNom(nomPerso);
                     b=false;
@@ -124,7 +125,7 @@ public class Joueur
                     pos.setPosition(this.rand.nextInt(w.longueur), this.rand.nextInt(w.hauteur));
                     this.perso=new Paysan();
                     this.perso.setPos(pos);
-                    System.out.println("Saisir un nom pour votre personnage");
+                    System.out.println(msg);
                     nomPerso=scanner.next();
                     this.perso.setNom(nomPerso);
                     b=false;

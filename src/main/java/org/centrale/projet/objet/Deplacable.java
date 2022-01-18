@@ -11,7 +11,7 @@ package org.centrale.projet.objet;
  * 
  */
 public interface Deplacable {
-    //public void deplacer();
+   
     
     public void deplacer(World w);
     

@@ -5,13 +5,10 @@
  */
 package org.centrale.projet.objet;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Random;
+
         
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 import java.util.Scanner;
         
 

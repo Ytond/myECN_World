@@ -63,6 +63,7 @@ public class Point2D {
 
     /**
      * Modificateur de l'attribut 'y'
+     * @param value
      */
     public void setY(int value) {
         this.y = value;
@@ -70,6 +71,8 @@ public class Point2D {
 
     /**
      * Modificateur des attributs 'x' et 'y'
+     * @param x
+     * @param y
      */
     public void setPosition(int x, int y) {
         this.setX(x);
@@ -115,15 +118,18 @@ public class Point2D {
      * @return La distance entre notre point et la point donné en argument
      */
     public double distance(Point2D p){
-        return (double)(Math.sqrt( (p.x-this.x)*(p.x-this.x) + (p.y-this.y)*(p.y-this.y) ));
+        return (Math.sqrt( (double)(p.x-this.x)*(p.x-this.x) + (p.y-this.y)*(p.y-this.y) ));
     }
     
     
     /**
      * la méthode distance permet de déterminer si deux points sont éloignés d'une distance inférieure ou égale à dist : 
      * s'ils le sont, renvoie true, sinon false
+     * @param p
+     * @param dist
+     * @return 
      */
-    public boolean check_distance(Point2D p, int dist){
+    public boolean checkDistance(Point2D p, int dist){
         return distance(p) <=dist ;
     }
     

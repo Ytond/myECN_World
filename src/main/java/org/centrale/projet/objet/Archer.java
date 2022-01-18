@@ -6,7 +6,7 @@
 package org.centrale.projet.objet;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.Random; 
+ 
 
 /**
  * Classe des Archers
@@ -35,6 +35,7 @@ public class Archer extends Personnage implements Combattant {
      * @param distMax    {@link Personnage#distAttMax}
      * @param pos   {@link Creature#pos}
      * @param nbF   {@link Archer#nbFleches}
+     * @throws java.security.NoSuchAlgorithmException
      */
     public Archer(String nom, int pV, int pA, int poP, int pM, int rM, int dA, int ptP, int dM, int distMax,Point2D pos,int nbF) throws NoSuchAlgorithmException {
         super(nom, pV,0, pA, poP, pM, rM, dA, ptP, dM, distMax,pos);
@@ -44,6 +45,7 @@ public class Archer extends Personnage implements Combattant {
     /**
      * 
      * @param a {@link Archer}
+     * @throws java.security.NoSuchAlgorithmException
      */
     public Archer(Archer a) throws NoSuchAlgorithmException {
         super(a);
@@ -51,11 +53,12 @@ public class Archer extends Personnage implements Combattant {
     }
     /**
      * Constructeur sans parametre de la classe Archer
+     * @throws java.security.NoSuchAlgorithmException
      */
     
     public Archer() throws NoSuchAlgorithmException {
         super();
-        //Random gAlea=new Random();
+        
         
         this.nbFleches =this.rand.nextInt(100) ;
     }
@@ -86,6 +89,7 @@ public class Archer extends Personnage implements Combattant {
      * @param c {@link Archer}
      */
     
+    @Override
     public void combattre(Creature c) 
     {
         if (this.nbFleches >= 1)
@@ -94,7 +98,7 @@ public class Archer extends Personnage implements Combattant {
             dist = this.pos.distance(c.pos) ;
             if ((dist<this.distAttMax))
             {   // si l'archer est à bonne distance
-                //Random rand = new Random();
+                
                 this.nbFleches = this.nbFleches -1 ;
                 if (this.rand.nextInt(100)+1 <= this.pourcentageMag) 
                 { //jet de dé entre 1 et 100

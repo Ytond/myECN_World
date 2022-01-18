@@ -62,13 +62,15 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
      * @param pos   {@link Creature#pos}
      */
     public Creature(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) throws NoSuchAlgorithmException {
+        
+        this.rand= SecureRandom.getInstanceStrong();
         this.ptVie = ptVie;
         this.pourcentageAtt = pourcentageAtt;
         this.pourcentagePar = pourcentagePar;
         this.degAtt = degAtt;
         this.ptPar = ptPar;
         this.pos = pos;
-        this.rand= SecureRandom.getInstanceStrong();
+        
     }
     
     /**
@@ -76,13 +78,15 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
      * @param c {@link Monstre}
      */
     public Creature(Creature c) throws NoSuchAlgorithmException {
+        
+        this.rand= SecureRandom.getInstanceStrong();
         this.ptVie = c.ptVie;
         this.pourcentageAtt = c.pourcentageAtt;
         this.pourcentagePar = c.pourcentagePar;
         this.degAtt = c.degAtt;
         this.ptPar = c.ptPar;
         this.pos = new Point2D(c.pos);
-        this.rand= SecureRandom.getInstanceStrong();
+        
     }
     /**
      * Constructeur sans parametres(Aléatoire)
@@ -92,15 +96,15 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
  
     
     public Creature() throws NoSuchAlgorithmException {
-        //Random gAlea=new Random();
-       
+        
+        this.rand= SecureRandom.getInstanceStrong();
         this.ptVie =this.rand.nextInt(100);
         this.pourcentageAtt =this.rand.nextInt(100);
         this.pourcentagePar =this.rand.nextInt(100);
         this.degAtt =this.rand.nextInt(100);
         this.ptPar =this.rand.nextInt(100);
         this.pos = new Point2D();
-        this.rand= SecureRandom.getInstanceStrong();
+        
     }
     
     public int getPtVie() {
@@ -168,7 +172,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
      * Déplace la créature aléatoirement vers une case adjacente
      */
     public void deplace() {
-        //Random generateurAleatoire = new Random();
+        
         this.pos.translate(this.rand.nextInt(3)-1,this.rand.nextInt(3)-1) ;
     }
     /**
@@ -186,9 +190,10 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
      * @param w {@link World}prend en parametre un objet de type World
      * Implémentation de la méthode de l'interface Deplacablr
      */
+    @Override
     public void deplacer(World w)
     {
-        //w.affichageJeu();
+        
         System.out.println("Déplacement");
         System.out.println("G pour Gauche");
         System.out.println("D pour Droite");
@@ -257,6 +262,6 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
                 this.pos.translate(0,0);
                 break;
         }
-        //w.affichageJeu();
+        
     }
 }

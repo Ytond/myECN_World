@@ -5,7 +5,7 @@
  */
 package org.centrale.projet.objet;
 import java.security.NoSuchAlgorithmException;
-import java.util.Random;
+
 
 /**
  * Classe des Mages
@@ -77,7 +77,7 @@ public class Mage extends Personnage implements Combattant {
             if ((dist<this.distAttMax))
             { // si le mage est à bonne distance
                 System.out.println("Attaque Possible");
-                //Random rand = new Random();  
+                 
                 this.ptMana = this.ptMana -1 ;
                 if (this.rand.nextInt(100)+1 <= this.pourcentageMag) 
                 { //jet de dé entre 1 et 100

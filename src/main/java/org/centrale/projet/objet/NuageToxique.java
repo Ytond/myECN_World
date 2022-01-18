@@ -61,7 +61,7 @@ public class NuageToxique extends Objet implements Deplacable,Combattant
 
     public NuageToxique() throws NoSuchAlgorithmException {
         super();
-        //Random gAlea=new Random();
+       
        
         this.rand=SecureRandom.getInstanceStrong();
         this.pourcentageAtt =  this.rand.nextInt(100);
@@ -96,7 +96,7 @@ public class NuageToxique extends Objet implements Deplacable,Combattant
         double dist ;
         dist = this.pos.distance(c.pos) ; 
         if (dist <2){  //si le guerrier est à distance de corps à corps
-            //Random rand = new Random();  
+            
             if (this.rand.nextInt(100)+1 <= this.pourcentageAtt) { //jet de dé
                 if (this.rand.nextInt(100)+1 <= c.pourcentagePar) {  //attaque réussie donc jet de dé pour la défense
                     if (c.ptPar < this.degAtt){ //defense réussie, on vérifie si les points de defense sont superieurs à l'attaque auquel cas l'attaque serait complètement parée

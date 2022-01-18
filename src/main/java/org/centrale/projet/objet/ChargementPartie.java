@@ -23,20 +23,20 @@ public class ChargementPartie
     /**
      * Nom du fichier Texte
      */
-    private String NomFichier;
+    private String nomFichier;
     /**
-     * Buffer
+     * buffer
      */
-    private BufferedReader Buffer;
+    private BufferedReader buffer;
     
     /**
      * Constructeur chargement Partie
-     * @param nomFichier {@link ChargementPartie#NomFichier}
+     * @param nomFichier {@link ChargementPartie#nomFichier}
      */
     public ChargementPartie(String nomFichier)
     {
         
-        this.NomFichier=nomFichier;
+        this.nomFichier=nomFichier;
         
     }
     /**
@@ -57,8 +57,8 @@ public class ChargementPartie
         try
         {
             String ligne;
-            this.Buffer = new BufferedReader(new FileReader(this.NomFichier));
-            ligne = this.Buffer.readLine();
+            this.buffer = new BufferedReader(new FileReader(this.nomFichier));
+            ligne = this.buffer.readLine();
             while(ligne!=null)
             {
                 //System.out.println(ligne);
@@ -300,7 +300,7 @@ public class ChargementPartie
           
                 }
                              
-                ligne = this.Buffer.readLine();
+                ligne = this.buffer.readLine();
                                 
             }
            

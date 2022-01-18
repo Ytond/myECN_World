@@ -7,9 +7,9 @@ package org.centrale.projet.objet;
 
 
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Random;
 import java.util.LinkedList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -154,6 +154,8 @@ public class World {
      * @param nbPersonnages Nombre de personnages max à instancier
      */
     public World(int nbPersonnages,int nbMonstres,int nbObjets) throws NoSuchAlgorithmException {
+        
+        this.rand= SecureRandom.getInstanceStrong();
         this.objets = initObjets(nbObjets);
         this.monstres = initMonstres(nbMonstres);
         this.personnages = initPersonnages(nbPersonnages);
@@ -172,6 +174,9 @@ public class World {
      * @param nbPersonnages Nombre de personnages max à instancier
      */
     public World(int nbPersonnages,int nbMonstres) throws NoSuchAlgorithmException {
+        
+        this.rand= SecureRandom.getInstanceStrong();
+        
         this.objets = initObjets(0);
         this.monstres = initMonstres(nbMonstres);
         this.personnages = initPersonnages(nbPersonnages);
@@ -183,6 +188,8 @@ public class World {
     * Constructeur par défaut
     */
     public World() throws NoSuchAlgorithmException {
+        
+        this.rand= SecureRandom.getInstanceStrong();
         this.personnages = new LinkedList<>();
         this.monstres = new LinkedList<>();
         this.objets = new LinkedList<>();
@@ -191,7 +198,9 @@ public class World {
         this.hauteur=10;
     }
     
-    public World( LinkedList<Personnage> p, LinkedList<Monstre> m,LinkedList<Objet> o,Joueur j) {
+    public World( LinkedList<Personnage> p, LinkedList<Monstre> m,LinkedList<Objet> o,Joueur j) throws NoSuchAlgorithmException {
+        
+        this.rand= SecureRandom.getInstanceStrong();
         this.personnages = p;
         this.monstres = m;
         this.objets = o;
@@ -272,7 +281,7 @@ public class World {
     
     public void creeMondeAlea() {
    
-        Random gAlea = new Random();
+        //Random gAlea = new Random();
         
         //on place aléatoirement les personnages dans des cases disponibles
         
@@ -281,11 +290,11 @@ public class World {
             
             
 
-            Point2D pAlea = new Point2D(gAlea.nextInt(longueur), gAlea.nextInt(hauteur));
+            Point2D pAlea = new Point2D(this.rand.nextInt(longueur), this.rand.nextInt(hauteur));
             
             while (!(this.isPositionFree(pAlea))) { //on compare avec le protagoniste déjà placé
-                pAlea.setX(gAlea.nextInt(longueur)); //si ça ne convient pas, on génère un autre point
-                pAlea.setY(gAlea.nextInt(hauteur));
+                pAlea.setX(this.rand.nextInt(longueur)); //si ça ne convient pas, on génère un autre point
+                pAlea.setY(this.rand.nextInt(hauteur));
             }
             p.pos.setPosition(pAlea.getX(), pAlea.getY());
             
@@ -295,11 +304,11 @@ public class World {
         //on place aléatoirement les monstres dans des cases disponibles
         for(Monstre m: this.monstres){
 
-            Point2D pAlea = new Point2D(gAlea.nextInt(longueur), gAlea.nextInt(hauteur));
+            Point2D pAlea = new Point2D(this.rand.nextInt(longueur), this.rand.nextInt(hauteur));
             
             while (!(this.isPositionFree(pAlea))) { //on compare avec le protagoniste déjà placé
-                pAlea.setX(gAlea.nextInt(longueur)); //si ça ne convient pas, on génère un autre point
-                pAlea.setY(gAlea.nextInt(hauteur));
+                pAlea.setX(this.rand.nextInt(longueur)); //si ça ne convient pas, on génère un autre point
+                pAlea.setY(this.rand.nextInt(hauteur));
             }
             m.pos.setPosition(pAlea.getX(), pAlea.getY());
             
@@ -308,11 +317,11 @@ public class World {
         //on place aléatoirement les Objets dans des cases disponibles
         for(Objet o: this.objets){
 
-            Point2D pAlea = new Point2D(gAlea.nextInt(longueur), gAlea.nextInt(hauteur));
+            Point2D pAlea = new Point2D(this.rand.nextInt(longueur), this.rand.nextInt(hauteur));
             
             while (!(this.isPositionFree(pAlea))) { //on compare avec le protagoniste déjà placé
-                pAlea.setX(gAlea.nextInt(longueur)); //si ça ne convient pas, on génère un autre point
-                pAlea.setY(gAlea.nextInt(hauteur));
+                pAlea.setX(this.rand.nextInt(longueur)); //si ça ne convient pas, on génère un autre point
+                pAlea.setY(this.rand.nextInt(hauteur));
             }
             o.pos.setPosition(pAlea.getX(), pAlea.getY());
             

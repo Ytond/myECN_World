@@ -6,7 +6,7 @@
 package org.centrale.projet.objet;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.Random;
+
 
 /**
  * Classe abstraite des Monstres

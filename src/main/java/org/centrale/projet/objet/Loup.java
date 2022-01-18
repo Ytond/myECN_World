@@ -5,7 +5,7 @@
  */
 package org.centrale.projet.objet;
 import java.security.NoSuchAlgorithmException;
-import java.util.Random;
+
 
 /**
  * Classe des Loups
@@ -57,7 +57,7 @@ public class Loup extends Monstre implements Combattant {
         dist = this.pos.distance(c.pos) ; 
         if (dist <2)
         {  //si le loup est à distance de corps à corps
-            //Random rand = new Random();  
+            
             if (this.rand.nextInt(100)+1 <= this.pourcentageAtt) 
             { //jet de dé
                 if (this.rand.nextInt(100)+1 > c.pourcentagePar) 
